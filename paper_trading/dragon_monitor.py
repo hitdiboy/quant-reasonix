@@ -364,3 +364,84 @@ def main():
     print_report(signals, positions, new_sigs)
 
 if __name__=="__main__": main()
+# ---- ML 选股评分集成 ----
+import pickle as _pk
+_ML_DIR = Path(__file__).parent.parent / "models"
+_ML_MODEL_PATH = _ML_DIR / "ml_selector.pkl"
+_ml_model = None
+_ml_features = None
+_ml_threshold = None
+
+def _load_ml_model():
+    global _ml_model, _ml_features, _ml_threshold
+    if _ML_MODEL_PATH.exists():
+        try:
+            data = _pk.load(open(_ML_MODEL_PATH, 'rb'))
+            if isinstance(data, dict):
+                _ml_model = data.get('model')
+                _ml_features = data.get('features')
+                _ml_threshold = data.get('threshold', 0.4)
+            else:
+                _ml_model = data
+                _ml_features = ['streak','vol_ratio','yin_depth','atr_ratio','is_fake','ma20_dev','ret_20d','price']
+                _ml_threshold = 0.4
+            return True
+        except: pass
+    return False
+
+def calc_ml_score(code, detail):
+    """用ML模型计算信号评分 (0-100)"""
+    if _ml_model is None:
+        if not _load_ml_model():
+            return detail.get('score', 50)
+    try:
+        df = read_from_cache(code)
+        if df is None or len(df) < 30: return detail.get('score', 50)
+        c = df['Close'].values; o = df['Open'].values; v = df['Volume'].values
+        h = df['High'].values; l = df['Low'].values; n = len(c)
+        i = n - 1
+        # 计算特征
+        limit_up = 0.198 if code.startswith(('300','688')) else 0.098
+        streak_cnt = 0
+        for j in range(max(0,i-10), i):
+            if j>0 and c[j]/c[j-1]-1 >= limit_up: streak_cnt += 1
+            else: streak_cnt = 0
+        
+        vol_ma5 = np.mean(v[max(0,i-5):i]) if i>=5 else np.mean(v[:i])
+        vol_r = v[i]/vol_ma5 if vol_ma5>0 else 99
+        
+        if i >= 15:
+            tr = np.maximum(h[i-14:i]-l[i-14:i],
+                np.maximum(abs(h[i-14:i]-c[i-15:i-1]),
+                          abs(l[i-14:i]-c[i-15:i-1])))
+            atr = np.mean(tr)
+        else: atr = 0
+        atr_r = atr/c[i] if c[i]>0 and atr>0 else 1
+        
+        lc = c[i-int(streak_cnt)-1] if streak_cnt>=1 else c[i-1]
+        depth = (c[i]-lc)/lc*100
+        is_fake = int(c[i] > c[i-1] and c[i] < o[i])
+        
+        ma20 = pd.Series(c).rolling(20).mean().values
+        ma20_dev = (c[i]-ma20[i])/ma20[i]*100 if not np.isnan(ma20[i]) else 0
+        ret_20d = (c[i]-c[max(0,i-20)])/c[max(0,i-20)]*100 if i>=20 else 0
+        
+        # 构建特征向量
+        feat = np.array([[streak_cnt, vol_r, depth, atr_r, is_fake, ma20_dev, ret_20d, c[i]]])
+        feat_df = pd.DataFrame(feat, columns=_ml_features).fillna(0)
+        
+        proba = _ml_model.predict_proba(feat_df)[0, 1]
+        ml_score = int(proba * 100)
+        return ml_score
+    except:
+        return detail.get('score', 50)
+
+# 覆盖 auto_buy 使用 ML 评分
+_original_auto_buy = auto_buy
+def auto_buy(code, detail, positions, signals, buy_price=None):
+    ml_score = calc_ml_score(code, detail)
+    detail['ml_score'] = ml_score
+    # 如果 ML 评分低于阈值则不买
+    if ml_score < 35:  # 对应概率 < 35%
+        return False, f"ML评分{ml_score}低于阈值"
+    return _original_auto_buy(code, detail, positions, signals, buy_price)

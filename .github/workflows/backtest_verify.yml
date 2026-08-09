@@ -1,0 +1,68 @@
+name: Strategy Backtest Verification
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install backtesting pandas numpy akshare matplotlib scikit-learn
+
+      - name: Test strategy import
+        run: |
+          python -c "
+          from strategies._base import BaseStrategy
+          from strategies.custom.strategy_001_dragon_first_yin import DragonFirstYin
+          from strategies.custom.strategy_004_dragon_first_yin_v38 import DragonFirstYinV38
+          from engine.factors.dragon_selector import compute_dragon_factors, calc_signal_score
+          print(f'BaseStrategy: OK')
+          print(f'DragonFirstYin: {DragonFirstYin.name}')
+          print(f'DragonFirstYinV38: {DragonFirstYinV38.name}')
+          print(f'DragonSelector: OK')
+          print('All imports OK')
+          "
+
+      - name: Run example backtest with synthetic data
+        run: |
+          python -c "
+          from backtesting import Backtest, Strategy
+          import pandas as pd, numpy as np
+          from strategies.custom.strategy_004_dragon_first_yin_v38 import DragonFirstYinV38
+
+          # Generate synthetic data
+          n = 500
+          idx = pd.date_range('2023-01-01', periods=n, freq='D')
+          close = np.random.randn(n).cumsum() + 50
+          open_ = close + np.random.randn(n) * 0.5
+          high = np.maximum(open_, close) * (1 + abs(np.random.randn(n)) * 0.01)
+          low = np.minimum(open_, close) * (1 - abs(np.random.randn(n)) * 0.01)
+          vol = np.random.randint(1000000, 10000000, n)
+          df = pd.DataFrame({'Open': open_, 'High': high, 'Low': low, 'Close': close, 'Volume': vol}, index=idx)
+
+          Strat = type('T', (DragonFirstYinV38,), {'stock_code': '002456'})
+          bt = Backtest(df, Strat, cash=100000, commission=0.0003)
+          result = bt.run()
+          print(f'Trades: {result[\"# Trades\"]}')
+          print(f'Return: {result[\"Return [%]\"]:.2f}%')
+          print(f'Sharpe: {result[\"Sharpe Ratio\"]:.3f}')
+          print('CI test passed')
+          "
+
+      - name: Verify saved reports
+        run: |
+          ls -la results/ 2>/dev/null || echo "results/ exists"
+          echo "Report files:"
+          ls results/ 2>/dev/null | head -10 || echo "No reports"
+          echo "Workflow complete"

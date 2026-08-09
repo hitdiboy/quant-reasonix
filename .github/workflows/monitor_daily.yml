@@ -1,0 +1,33 @@
+name: Daily Dragon Monitor
+
+on:
+  schedule:
+    - cron: '30 2 * * 1-5'  # 周一至周五北京时间10:30 (UTC 02:30)
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  scan-and-track:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      
+      - name: Install dependencies
+        run: |
+          pip install backtesting pandas numpy akshare requests matplotlib scikit-learn
+      
+      - name: Run dragon scan
+        run: |
+          python paper_trading/dragon_monitor.py --scan
+      
+      - name: Commit signals and positions
+        run: |
+          git config user.name "quant-bot"
+          git config user.email "bot@quant.local"
+          git add paper_trading/dragon_signals.json paper_trading/dragon_positions.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "auto update $(date +'%Y-%m-%d')"
+          git push
