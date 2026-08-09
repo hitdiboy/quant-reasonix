@@ -1,0 +1,517 @@
+{
+  "date": "2026-08-09",
+  "signals": [
+    {
+      "code": "002012",
+      "date": "2026-08-06",
+      "price": 6.54,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002303",
+      "date": "2026-08-06",
+      "price": 5.59,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002425",
+      "date": "2026-08-06",
+      "price": 3.82,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002649",
+      "date": "2026-08-06",
+      "price": 11.29,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002734",
+      "date": "2026-08-06",
+      "price": 16.15,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002827",
+      "date": "2026-08-06",
+      "price": 49.24,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002849",
+      "date": "2026-08-06",
+      "price": 16.09,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002973",
+      "date": "2026-08-06",
+      "price": 10.99,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300050",
+      "date": "2026-08-06",
+      "price": 6.15,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300051",
+      "date": "2026-08-06",
+      "price": 8.78,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300084",
+      "date": "2026-08-06",
+      "price": 12.54,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300097",
+      "date": "2026-08-06",
+      "price": 9.54,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300103",
+      "date": "2026-08-06",
+      "price": 7.7,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300134",
+      "date": "2026-08-06",
+      "price": 9.59,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300139",
+      "date": "2026-08-06",
+      "price": 46.04,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300170",
+      "date": "2026-08-06",
+      "price": 18.3,
+      "dragon_score": 0,
+      "momentum_score": 100,
+      "total_score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300025",
+      "date": "2026-08-06",
+      "price": 5.07,
+      "dragon_score": 0,
+      "momentum_score": 99.29078014184395,
+      "total_score": 99.29078014184395,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002915",
+      "date": "2026-08-06",
+      "price": 18.65,
+      "dragon_score": 0,
+      "momentum_score": 96.22762148337588,
+      "total_score": 96.22762148337588,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300189",
+      "date": "2026-08-06",
+      "price": 5.1,
+      "dragon_score": 0,
+      "momentum_score": 94.40559440559437,
+      "total_score": 94.40559440559437,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002355",
+      "date": "2026-08-06",
+      "price": 5.04,
+      "dragon_score": 0,
+      "momentum_score": 87.41258741258741,
+      "total_score": 87.41258741258741,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002826",
+      "date": "2026-08-06",
+      "price": 18.15,
+      "dragon_score": 0,
+      "momentum_score": 85.10638297872336,
+      "total_score": 85.10638297872336,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002212",
+      "date": "2026-08-06",
+      "price": 7.36,
+      "dragon_score": 0,
+      "momentum_score": 85.05564387917332,
+      "total_score": 85.05564387917332,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002875",
+      "date": "2026-08-06",
+      "price": 14.01,
+      "dragon_score": 0,
+      "momentum_score": 83.2639467110741,
+      "total_score": 83.2639467110741,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002369",
+      "date": "2026-08-06",
+      "price": 6.27,
+      "dragon_score": 0,
+      "momentum_score": 82.71375464684013,
+      "total_score": 82.71375464684013,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002762",
+      "date": "2026-08-06",
+      "price": 9.46,
+      "dragon_score": 0,
+      "momentum_score": 82.51231527093607,
+      "total_score": 82.51231527093607,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002194",
+      "date": "2026-08-06",
+      "price": 10.09,
+      "dragon_score": 0,
+      "momentum_score": 81.89158016147636,
+      "total_score": 81.89158016147636,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002766",
+      "date": "2026-08-06",
+      "price": 4.43,
+      "dragon_score": 0,
+      "momentum_score": 81.36482939632542,
+      "total_score": 81.36482939632542,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002887",
+      "date": "2026-08-06",
+      "price": 10.76,
+      "dragon_score": 0,
+      "momentum_score": 80.36677454153184,
+      "total_score": 80.36677454153184,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300127",
+      "date": "2026-08-06",
+      "price": 26.8,
+      "dragon_score": 0,
+      "momentum_score": 80.33780857514077,
+      "total_score": 80.33780857514077,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002319",
+      "date": "2026-08-06",
+      "price": 11.35,
+      "dragon_score": 0,
+      "momentum_score": 79.08163265306116,
+      "total_score": 79.08163265306116,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002052",
+      "date": "2026-08-06",
+      "price": 9.75,
+      "dragon_score": 0,
+      "momentum_score": 78.97862232779097,
+      "total_score": 78.97862232779097,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002667",
+      "date": "2026-08-06",
+      "price": 13.48,
+      "dragon_score": 0,
+      "momentum_score": 75.0853242320819,
+      "total_score": 75.0853242320819,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002969",
+      "date": "2026-08-06",
+      "price": 13.56,
+      "dragon_score": 0,
+      "momentum_score": 73.11918850380391,
+      "total_score": 73.11918850380391,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002485",
+      "date": "2026-08-06",
+      "price": 5.9,
+      "dragon_score": 0,
+      "momentum_score": 69.49806949806957,
+      "total_score": 69.49806949806957,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300198",
+      "date": "2026-08-06",
+      "price": 2.3,
+      "dragon_score": 0,
+      "momentum_score": 66.5024630541872,
+      "total_score": 66.5024630541872,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002376",
+      "date": "2026-08-06",
+      "price": 6.99,
+      "dragon_score": 0,
+      "momentum_score": 65.53398058252431,
+      "total_score": 65.53398058252431,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002686",
+      "date": "2026-08-06",
+      "price": 6.57,
+      "dragon_score": 0,
+      "momentum_score": 65.40447504302932,
+      "total_score": 65.40447504302932,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002836",
+      "date": "2026-08-06",
+      "price": 9.78,
+      "dragon_score": 0,
+      "momentum_score": 65.31791907514445,
+      "total_score": 65.31791907514445,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002418",
+      "date": "2026-08-06",
+      "price": 3.75,
+      "dragon_score": 0,
+      "momentum_score": 64.75903614457835,
+      "total_score": 64.75903614457835,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002161",
+      "date": "2026-08-06",
+      "price": 5.8,
+      "dragon_score": 0,
+      "momentum_score": 62.01550387596896,
+      "total_score": 62.01550387596896,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002637",
+      "date": "2026-08-06",
+      "price": 10.79,
+      "dragon_score": 0,
+      "momentum_score": 61.97916666666664,
+      "total_score": 61.97916666666664,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002155",
+      "date": "2026-08-06",
+      "price": 25.15,
+      "dragon_score": 0,
+      "momentum_score": 60.383244206773554,
+      "total_score": 60.383244206773554,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002305",
+      "date": "2026-08-06",
+      "price": 2.15,
+      "dragon_score": 0,
+      "momentum_score": 59.89583333333333,
+      "total_score": 59.89583333333333,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002703",
+      "date": "2026-08-06",
+      "price": 16.35,
+      "dragon_score": 0,
+      "momentum_score": 59.548254620123274,
+      "total_score": 59.548254620123274,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300173",
+      "date": "2026-08-06",
+      "price": 3.4,
+      "dragon_score": 0,
+      "momentum_score": 59.21052631578945,
+      "total_score": 59.21052631578945,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002316",
+      "date": "2026-08-06",
+      "price": 4.51,
+      "dragon_score": 0,
+      "momentum_score": 58.168316831683136,
+      "total_score": 58.168316831683136,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002114",
+      "date": "2026-08-06",
+      "price": 7.14,
+      "dragon_score": 0,
+      "momentum_score": 57.81249999999994,
+      "total_score": 57.81249999999994,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002455",
+      "date": "2026-08-06",
+      "price": 7.05,
+      "dragon_score": 0,
+      "momentum_score": 56.872037914691916,
+      "total_score": 56.872037914691916,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300168",
+      "date": "2026-08-06",
+      "price": 5.3,
+      "dragon_score": 0,
+      "momentum_score": 56.72268907563026,
+      "total_score": 56.72268907563026,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002474",
+      "date": "2026-08-06",
+      "price": 6.66,
+      "dragon_score": 0,
+      "momentum_score": 55.000000000000014,
+      "total_score": 55.000000000000014,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002029",
+      "date": "2026-08-06",
+      "price": 8.92,
+      "dragon_score": 0,
+      "momentum_score": 54.726368159204036,
+      "total_score": 54.726368159204036,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "300056",
+      "date": "2026-08-06",
+      "price": 8.92,
+      "dragon_score": 0,
+      "momentum_score": 54.726368159204036,
+      "total_score": 54.726368159204036,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002656",
+      "date": "2026-08-06",
+      "price": 2.95,
+      "dragon_score": 0,
+      "momentum_score": 54.51127819548873,
+      "total_score": 54.51127819548873,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002248",
+      "date": "2026-08-06",
+      "price": 9.12,
+      "dragon_score": 0,
+      "momentum_score": 50.060313630880586,
+      "total_score": 50.060313630880586,
+      "strategy": "动量突破"
+    }
+  ],
+  "allocations": [
+    {
+      "code": "002012",
+      "price": 6.54,
+      "shares": 4800,
+      "amount": 31392.0,
+      "score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002303",
+      "price": 5.59,
+      "shares": 5600,
+      "amount": 31304.0,
+      "score": 100,
+      "strategy": "动量突破"
+    },
+    {
+      "code": "002425",
+      "price": 3.82,
+      "shares": 8200,
+      "amount": 31324.0,
+      "score": 100,
+      "strategy": "动量突破"
+    }
+  ]
+}
