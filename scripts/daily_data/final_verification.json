@@ -1,0 +1,39 @@
+{
+  "method": "close>MA20 + cp>0.6 + vr>1.3 + px<=100",
+  "exit": "+2.5%/-2.0%´ÎÈÕ",
+  "stocks": 6,
+  "avg_return": 6.7,
+  "positive_pct": 83.0,
+  "details": [
+    {
+      "code": "002432",
+      "trades": 82,
+      "ret": 16.7
+    },
+    {
+      "code": "002164",
+      "trades": 90,
+      "ret": 22.19
+    },
+    {
+      "code": "002211",
+      "trades": 82,
+      "ret": 1.49
+    },
+    {
+      "code": "002178",
+      "trades": 95,
+      "ret": -9.42
+    },
+    {
+      "code": "002400",
+      "trades": 86,
+      "ret": 3.1
+    },
+    {
+      "code": "002456",
+      "trades": 100,
+      "ret": 6.12
+    }
+  ]
+}
