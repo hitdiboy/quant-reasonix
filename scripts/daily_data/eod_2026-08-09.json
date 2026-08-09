@@ -2,396 +2,138 @@
   "date": "2026-08-09",
   "top": [
     {
-      "code": "002029",
-      "price": 8.92,
+      "code": "002371",
+      "price": 742.5,
       "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
+      "total": 91,
+      "ml_score": 99,
+      "rule_score": 75,
+      "s1_tail": 25,
+      "s2_vol": 10,
+      "s3_ma": 15,
       "s4_risk": 25,
       "detail": {
-        "cp": 0.83,
-        "body": 0.37,
+        "cp": 0.6,
+        "body": 0.45,
         "is_up": true,
-        "vr": 2.89,
-        "ret5": 10.95
+        "vr": 1.87,
+        "ret5": 11.14
       }
     },
     {
-      "code": "002041",
-      "price": 9.14,
+      "code": "002916",
+      "price": 353.99,
       "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
+      "total": 86,
+      "ml_score": 92,
+      "rule_score": 75,
+      "s1_tail": 25,
+      "s2_vol": 15,
+      "s3_ma": 10,
       "s4_risk": 25,
       "detail": {
-        "cp": 0.79,
-        "body": 0.67,
+        "cp": 0.54,
+        "body": 0.48,
         "is_up": true,
-        "vr": 7.23,
-        "ret5": 5.54
+        "vr": 2.12,
+        "ret5": 24.43
       }
     },
     {
-      "code": "002052",
-      "price": 9.75,
+      "code": "300750",
+      "price": 388.0,
       "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
+      "total": 86,
+      "ml_score": 93,
+      "rule_score": 70,
+      "s1_tail": 10,
       "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
+      "s3_ma": 15,
+      "s4_risk": 20,
       "detail": {
-        "cp": 1.0,
-        "body": 0.89,
-        "is_up": true,
-        "vr": 6.9,
-        "ret5": 15.8
+        "cp": 0.15,
+        "body": 0.85,
+        "is_up": false,
+        "vr": 3.96,
+        "ret5": -3.45
       }
     }
   ],
   "all": [
     {
-      "code": "002029",
-      "price": 8.92,
+      "code": "002371",
+      "price": 742.5,
       "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
+      "total": 91,
+      "ml_score": 99,
+      "rule_score": 75,
+      "s1_tail": 25,
+      "s2_vol": 10,
+      "s3_ma": 15,
       "s4_risk": 25,
       "detail": {
-        "cp": 0.83,
-        "body": 0.37,
+        "cp": 0.6,
+        "body": 0.45,
         "is_up": true,
-        "vr": 2.89,
-        "ret5": 10.95
+        "vr": 1.87,
+        "ret5": 11.14
       }
     },
     {
-      "code": "002041",
-      "price": 9.14,
+      "code": "002916",
+      "price": 353.99,
       "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
+      "total": 86,
+      "ml_score": 92,
+      "rule_score": 75,
+      "s1_tail": 25,
+      "s2_vol": 15,
+      "s3_ma": 10,
       "s4_risk": 25,
       "detail": {
-        "cp": 0.79,
-        "body": 0.67,
+        "cp": 0.54,
+        "body": 0.48,
         "is_up": true,
-        "vr": 7.23,
-        "ret5": 5.54
+        "vr": 2.12,
+        "ret5": 24.43
       }
     },
     {
-      "code": "002052",
-      "price": 9.75,
+      "code": "300750",
+      "price": 388.0,
       "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
+      "total": 86,
+      "ml_score": 93,
+      "rule_score": 70,
+      "s1_tail": 10,
       "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
+      "s3_ma": 15,
+      "s4_risk": 20,
       "detail": {
-        "cp": 1.0,
-        "body": 0.89,
-        "is_up": true,
-        "vr": 6.9,
-        "ret5": 15.8
+        "cp": 0.15,
+        "body": 0.85,
+        "is_up": false,
+        "vr": 3.96,
+        "ret5": -3.45
       }
     },
     {
-      "code": "002064",
-      "price": 11.82,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
+      "code": "688027",
+      "price": 403.5,
+      "date": "2026-08-03",
+      "total": 86,
+      "ml_score": 95,
+      "rule_score": 65,
+      "s1_tail": 25,
+      "s2_vol": 5,
+      "s3_ma": 10,
       "s4_risk": 25,
       "detail": {
-        "cp": 0.79,
-        "body": 0.53,
+        "cp": 0.72,
+        "body": 0.46,
         "is_up": true,
-        "vr": 2.53,
-        "ret5": 6.01
-      }
-    },
-    {
-      "code": "002128",
-      "price": 27.79,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.82,
-        "body": 0.68,
-        "is_up": true,
-        "vr": 4.11,
-        "ret5": 2.55
-      }
-    },
-    {
-      "code": "002154",
-      "price": 4.19,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.89,
-        "body": 0.72,
-        "is_up": true,
-        "vr": 2.77,
-        "ret5": 7.99
-      }
-    },
-    {
-      "code": "002161",
-      "price": 5.8,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.92,
-        "body": 0.72,
-        "is_up": true,
-        "vr": 3.01,
-        "ret5": 12.4
-      }
-    },
-    {
-      "code": "002199",
-      "price": 13.94,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.93,
-        "body": 0.41,
-        "is_up": true,
-        "vr": 2.13,
-        "ret5": -2.11
-      }
-    },
-    {
-      "code": "002206",
-      "price": 5.42,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.9,
-        "body": 0.8,
-        "is_up": true,
-        "vr": 3.36,
-        "ret5": 2.65
-      }
-    },
-    {
-      "code": "002212",
-      "price": 7.36,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 1.0,
-        "body": 0.96,
-        "is_up": true,
-        "vr": 2.55,
-        "ret5": 17.01
-      }
-    },
-    {
-      "code": "002302",
-      "price": 5.08,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 1.0,
-        "body": 1.0,
-        "is_up": true,
-        "vr": 7.51,
-        "ret5": 9.48
-      }
-    },
-    {
-      "code": "002303",
-      "price": 5.59,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.96,
-        "body": 0.69,
-        "is_up": true,
-        "vr": 3.14,
-        "ret5": 30.3
-      }
-    },
-    {
-      "code": "002305",
-      "price": 2.15,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.85,
-        "body": 0.62,
-        "is_up": true,
-        "vr": 3.87,
-        "ret5": 11.98
-      }
-    },
-    {
-      "code": "002316",
-      "price": 4.51,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 1.0,
-        "body": 0.89,
-        "is_up": true,
-        "vr": 2.91,
-        "ret5": 11.63
-      }
-    },
-    {
-      "code": "002333",
-      "price": 5.47,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.84,
-        "body": 0.74,
-        "is_up": true,
-        "vr": 5.14,
-        "ret5": 3.4
-      }
-    },
-    {
-      "code": "002369",
-      "price": 6.27,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 1.0,
-        "body": 0.93,
-        "is_up": true,
-        "vr": 3.15,
-        "ret5": 16.54
-      }
-    },
-    {
-      "code": "002394",
-      "price": 9.63,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.97,
-        "body": 0.7,
-        "is_up": true,
-        "vr": 3.95,
-        "ret5": 6.17
-      }
-    },
-    {
-      "code": "002474",
-      "price": 6.66,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.91,
-        "body": 0.88,
-        "is_up": true,
-        "vr": 3.75,
-        "ret5": 11.0
-      }
-    },
-    {
-      "code": "002485",
-      "price": 5.9,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 1.0,
-        "body": 0.87,
-        "is_up": true,
-        "vr": 4.93,
-        "ret5": 13.9
-      }
-    },
-    {
-      "code": "002493",
-      "price": 13.14,
-      "date": "2026-08-06",
-      "total": 100,
-      "s1_tail": 30,
-      "s2_vol": 25,
-      "s3_ma": 20,
-      "s4_risk": 25,
-      "detail": {
-        "cp": 0.95,
-        "body": 0.84,
-        "is_up": true,
-        "vr": 4.44,
-        "ret5": 5.04
+        "vr": 1.34,
+        "ret5": 7.64
       }
     }
   ]

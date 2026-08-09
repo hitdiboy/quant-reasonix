@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""尾盘隔夜战法 -- 实战版每日选股系统 v1.1"""
-import sys, os, json, datetime
+"""尾盘隔夜战法 v1.2 — ML增强版"""
+import sys, os, json, datetime, pickle
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import pandas as pd, numpy as np
@@ -10,13 +10,13 @@ CONFIG = json.load(open(Path(__file__).parent.parent / "config" / "eod_strategy.
 DATA_DIR = Path(__file__).parent / "daily_data"
 DATA_DIR.mkdir(exist_ok=True)
 
-MIN_SCORE = CONFIG.get("min_score", 80)
+MIN_SCORE = CONFIG.get("min_score", 85)
 MAX_POS = CONFIG.get("max_positions", 3)
-MIN_VR = CONFIG.get("min_vol_ratio", 1.5)
-MIN_CP = CONFIG.get("min_close_pos", 0.75)
-MIN_BODY = CONFIG.get("min_body_ratio", 0.35)
-REQ_MA60 = CONFIG.get("require_ma60", False)
-MAX_VR = CONFIG.get("max_vol_ratio_filter", 3.0)
+
+# Load ML model
+_ml_data = pickle.load(open(Path(__file__).parent.parent / "models" / "ml_selector.pkl", "rb"))
+_ml_model = _ml_data["model"]
+_ml_features = _ml_data["features"]
 
 def calc_tail_score(code):
     fp = CACHE / f"{code}.parquet"
@@ -40,32 +40,30 @@ def calc_tail_score(code):
     o = df['Open'].values; v = df['Volume'].values; n = len(c); i = n - 1
     rng = h[i] - l[i] if h[i] > l[i] else 1
 
-    # D1: 尾盘形态 (30分)
+    # --- Rule-based score (五维评分) ---
     close_pos = (c[i] - l[i]) / rng
     body = abs(c[i] - o[i]) / rng
     is_up = c[i] > o[i]
     s1 = 0
     if is_up: s1 += 10
-    if close_pos >= MIN_CP: s1 += 10
+    if close_pos >= 0.75: s1 += 10
     elif close_pos >= 0.5: s1 += 5
-    if body >= MIN_BODY: s1 += 10
+    if body >= 0.35: s1 += 10
     elif body >= 0.25: s1 += 5
     s1 = min(s1, 30)
 
-    # D2: 量能确认 (25分)
     v5 = np.mean(v[max(0,i-5):i]) if i>=5 else np.mean(v[:i])
     v20 = np.mean(v[max(0,i-20):i]) if i>=20 else np.mean(v[:i])
     vr = v[i]/v5 if v5>0 else 1
     vr20 = v[i]/v20 if v20>0 else 1
     s2 = 0
     if vr >= 2.0: s2 += 15
-    elif vr >= MIN_VR: s2 += 10
+    elif vr >= 1.5: s2 += 10
     elif vr >= 1.3: s2 += 5
     if vr20 >= 1.5: s2 += 10
     elif vr20 >= 1.2: s2 += 5
     s2 = min(s2, 25)
 
-    # D3: 均线位置 (20分)
     ma20 = pd.Series(c).rolling(20).mean().values
     ma60 = pd.Series(c).rolling(60).mean().values
     ma5 = pd.Series(c).rolling(5).mean().values
@@ -75,20 +73,47 @@ def calc_tail_score(code):
     if not np.isnan(ma5[i]) and not np.isnan(ma20[i]) and ma5[i] > ma20[i]: s3 += 5
     s3 = min(s3, 20)
 
-    # D4: 风险控制 (25分)
     s4 = 15
-    if vr <= MAX_VR: s4 += 5
+    if vr <= 3.0: s4 += 5
     ret5 = (c[i]-c[max(0,i-5)])/c[max(0,i-5)]*100 if i>=5 else 0
     if ret5 > -5: s4 += 5
-    if c[i] < 100: s4 += 5
+    if c[i] < 30: s4 += 5
+    elif c[i] < 60: s4 += 3
     s4 = min(s4, 25)
+    rule_score = s1 + s2 + s3 + s4
 
-    total = s1 + s2 + s3 + s4
+    if c[i] > 100: return None
+    # --- ML score ---
+    if i >= 20:
+        limit_up = 0.198 if code.startswith(("300","688")) else 0.098
+        streak = 0
+        for j in range(max(0,i-10), i):
+            if j>0 and c[j]/c[j-1]-1 >= limit_up: streak += 1
+            else: streak = 0
+        if i >= 15:
+            tr = np.maximum(h[i-14:i]-l[i-14:i],
+                np.maximum(abs(h[i-14:i]-c[i-15:i-1]), abs(l[i-14:i]-c[i-15:i-1])))
+            atr = np.mean(tr)
+        else: atr = 0
+        atr_r = atr/c[i] if c[i]>0 and atr>0 else 1
+        lc2 = c[i-streak-1] if streak>=1 else c[i-1]
+        depth = (c[i]-lc2)/lc2*100
+        is_fake = int(c[i] > c[i-1] and c[i] < o[i])
+        ma20_dev = (c[i]-ma20[i])/ma20[i]*100 if not np.isnan(ma20[i]) else 0
+        ret20 = (c[i]-c[max(0,i-20)])/c[max(0,i-20)]*100 if i>=20 else 0
+        feat = np.array([[streak, vr, depth, atr_r, is_fake, ma20_dev, ret20, c[i]]])
+        feat_df = pd.DataFrame(feat, columns=_ml_features).fillna(0)
+        ml_score = int(_ml_model.predict_proba(feat_df)[0, 1] * 100)
+    else:
+        ml_score = rule_score
+
+    # 综合评分 = ML评分(70%) + 规则评分(30%)
+    total = int(ml_score * 0.7 + rule_score * 0.3)
     if total < MIN_SCORE: return None
 
     return {
         'code': code, 'price': round(c[i], 2), 'date': str(df.index[-1].date()),
-        'total': total,
+        'total': total, 'ml_score': ml_score, 'rule_score': rule_score,
         's1_tail': s1, 's2_vol': s2, 's3_ma': s3, 's4_risk': s4,
         'detail': {'cp': round(close_pos, 2), 'body': round(body, 2),
                    'is_up': bool(is_up), 'vr': round(vr, 2), 'ret5': round(ret5, 2)}
@@ -105,15 +130,15 @@ def scan_and_select():
     candidates.sort(key=lambda x: -x['total'])
 
     print(f"\n{'='*60}")
-    print(f"  尾盘隔夜战法 -- {datetime.date.today()}")
+    print(f"  尾盘隔夜战法 v1.2(ML增强) -- {datetime.date.today()}")
     print(f"{'='*60}")
-    print(f"扫描: {len(codes)}只 | 候选: {len(candidates)}只 (阈值≥{MIN_SCORE}分)")
+    print(f"扫描: {len(codes)}只 | 候选: {len(candidates)}只 (阈值≥{MIN_SCORE})")
     if candidates:
         print(f"\nTop 10:")
-        print(f"  {'代码':>8} {'价格':>8} {'总分':>6} {'尾盘':>6} {'量能':>6} {'均线':>6} {'风控':>6}")
-        print(f"  {'-'*8} {'-'*8} {'-'*6} {'-'*6} {'-'*6} {'-'*6} {'-'*6}")
+        print(f"  {'代码':>8} {'价格':>8} {'总分':>6} {'ML':>6} {'规则':>6} {'尾盘':>6} {'量能':>6} {'均线':>6}")
+        print(f"  {'-'*8} {'-'*8} {'-'*6} {'-'*6} {'-'*6} {'-'*6} {'-'*6} {'-'*6}")
         for s in candidates[:10]:
-            print(f"  {s['code']:>8} {s['price']:>8.2f} {s['total']:>6} {s['s1_tail']:>6} {s['s2_vol']:>6} {s['s3_ma']:>6} {s['s4_risk']:>6}")
+            print(f"  {s['code']:>8} {s['price']:>8.2f} {s['total']:>6} {s['ml_score']:>6} {s['rule_score']:>6} {s['s1_tail']:>6} {s['s2_vol']:>6} {s['s3_ma']:>6}")
         print(f"\n今日买入 (Top {MAX_POS}):")
         for s in candidates[:MAX_POS]:
             n_shares = int(100000/MAX_POS/s['price']/100)*100
