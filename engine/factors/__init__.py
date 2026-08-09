@@ -1,2 +1,1 @@
-# engine/factors
-from .alpha191 import compute_factors
+# engine/factors\nfrom .dragon_selector import compute_dragon_factors, calc_signal_score
