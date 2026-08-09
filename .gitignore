@@ -1,0 +1,40 @@
+# ===== 量化项目 .gitignore =====
+
+# 第三方仓库（克隆到 _pkg_* 目录，不纳入本项目管理）
+_pkg_*/
+_skill_*/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# 数据库文件（由代码自动创建）
+results/vault.db
+results/vault.db.new
+*.db
+*.db.new
+
+# 临时文件
+*.new
+*.bak
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系统
+Thumbs.db
+.DS_Store
+
+# Reasonix 会话元数据
+.reasonix/
+
+data/cache/
+_q_out.txt
+_run_output.txt
