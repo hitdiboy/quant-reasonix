@@ -3,7 +3,7 @@
 import sys, os, time, pandas as pd, numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), os.pardir))
 from backtesting import Backtest
-from strategies.custom.strategy_001_dragon_first_yin import DragonFirstYin
+from strategies.custom.dragon_first_yin_v35 import DragonFirstYin
 
 CACHE_BASE = r'C:\Users\Administrator\Codex-Workspace\quant-codex\data\cache'
 

@@ -20,12 +20,12 @@ _sop/               项目经验
 
 ```bash
 # 验证策略导入
-python -c "from strategies.custom.strategy_001_dragon_first_yin import DragonFirstYin; print('OK:', DragonFirstYin.description)"
+python -c "from strategies.custom.dragon_first_yin_v35 import DragonFirstYin; print('OK:', DragonFirstYin.description)"
 
 # 单只股票回测示例
 python -c "
 from backtesting import Backtest
-from strategies.custom.strategy_001_dragon_first_yin import DragonFirstYin
+from strategies.custom.dragon_first_yin_v35 import DragonFirstYin
 from data.fetch.unified import fetch
 
 data = fetch('002456', start='20230101')

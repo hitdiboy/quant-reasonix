@@ -9,7 +9,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-from strategies.custom.strategy_001_dragon_first_yin import DragonFirstYin
+from strategies.custom.dragon_first_yin_v35 import DragonFirstYin
 from data.fetch.unified import fetch
 
 def run(code="002456", start="20230101", cash=100000, commission=0.0003):

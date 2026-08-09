@@ -19,7 +19,7 @@
 cd C:\Users\Administrator\AppData\Roaming\reasonix\global-workspace\quant-reasonix
 
 # 验证导入
-python -c "from strategies.custom.strategy_001_dragon_first_yin import DragonFirstYin; print('OK:', DragonFirstYin.description)"
+python -c "from strategies.custom.dragon_first_yin_v35 import DragonFirstYin; print('OK:', DragonFirstYin.description)"
 
 # 单只回测
 python run_backtest.py --code=002456 --start=20230101 --save=results/dragon_yin.png
@@ -53,7 +53,7 @@ paper_trading/simulator.py  paper_trading/tracker.py
 results/__init__.py  results/query.py  results/vault.py
 run_backtest.py  scripts/_run_all_stocks.py
 strategies/__init__.py  strategies/_base.py
-strategies/custom/__init__.py  strategies/custom/strategy_001_dragon_first_yin.py
+strategies/custom/__init__.py  strategies/custom/dragon_first_yin_v35.py
 strategies/factory.py
 tracking/handover.md  tracking/run_dragon_realtime.ps1
 ```

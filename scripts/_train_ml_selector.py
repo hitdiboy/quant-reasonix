@@ -4,7 +4,7 @@ import sys, os, json, pickle
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pandas as pd, numpy as np
 from backtesting import Backtest
-from strategies.custom.strategy_004_dragon_first_yin_v38 import DragonFirstYinV38
+from strategies.custom.dragon_first_yin_v38 import DragonFirstYinV38
 from engine.factors.dragon_selector import compute_dragon_factors, calc_signal_score
 
 CACHE = r'C:\Users\Administrator\Codex-Workspace\quant-codex\data\cache'

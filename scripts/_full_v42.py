@@ -1,7 +1,7 @@
 import sys, os, time, pandas as pd, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from backtesting import Backtest
-from strategies.custom.strategy_008_dragon_first_yin_v42 import DragonFirstYinV42
+from strategies.custom.dragon_first_yin_v42 import DragonFirstYinV42
 
 CACHE = r'C:\Users\Administrator\Codex-Workspace\quant-codex\data\cache'
 files = sorted([f.replace('.parquet','') for f in os.listdir(CACHE)

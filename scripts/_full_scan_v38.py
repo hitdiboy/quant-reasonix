@@ -53,7 +53,7 @@ for board in ['中小板', '科创板']:
 top_n = min(200, len(signals))
 print(f'\nStep 2: Full backtest v38 on top {top_n} signal stocks...')
 from backtesting import Backtest
-from strategies.custom.strategy_004_dragon_first_yin_v38 import DragonFirstYinV38
+from strategies.custom.dragon_first_yin_v38 import DragonFirstYinV38
 
 t1 = time.time()
 all_results = []

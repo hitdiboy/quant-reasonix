@@ -4,7 +4,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pandas as pd, numpy as np
 from backtesting import Backtest
-from strategies.custom.strategy_002_dragon_first_yin_v36 import DragonFirstYinV36
+from strategies.custom.dragon_first_yin_v36 import DragonFirstYinV36
 
 CACHE = r'C:\Users\Administrator\Codex-Workspace\quant-codex\data\cache'
 

@@ -2,8 +2,8 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pandas as pd, numpy as np
 from backtesting import Backtest
-from strategies.custom.strategy_004_dragon_first_yin_v38 import DragonFirstYinV38
-from strategies.custom.strategy_008_dragon_first_yin_v42 import DragonFirstYinV42
+from strategies.custom.dragon_first_yin_v38 import DragonFirstYinV38
+from strategies.custom.dragon_first_yin_v42 import DragonFirstYinV42
 
 CACHE = r'C:\Users\Administrator\Codex-Workspace\quant-codex\data\cache'
 codes = ['002432','002164','002211','002178','002400','002456','002229',

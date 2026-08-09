@@ -7,8 +7,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from backtesting import Backtest
-from strategies.custom.strategy_004_dragon_first_yin_v38 import DragonFirstYinV38
-from strategies.custom.strategy_007_dragon_first_yin_v41 import DragonFirstYinV41
+from strategies.custom.dragon_first_yin_v38 import DragonFirstYinV38
+from strategies.custom.dragon_first_yin_v41 import DragonFirstYinV41
 
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
 plt.rcParams['axes.unicode_minus'] = False
